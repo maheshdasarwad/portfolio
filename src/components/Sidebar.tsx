@@ -1,4 +1,4 @@
-import { Download, Clock } from 'lucide-react'
+import { Clock } from 'lucide-react'
 import type { Section } from '../App'
 import { data } from '../data/portfolioData'
 import { BiLogoLinkedin } from "react-icons/bi"
@@ -11,17 +11,15 @@ interface Props {
 export default function Sidebar({ setActiveSection }: Props) {
 
   const now = new Date()
-  const timeStr = now.toLocaleTimeString([], {
-    hour: '2-digit',
-    minute: '2-digit'
-  })
+  const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 
   return (
     <aside className="w-full mt-3 rounded-xl overflow-hidden">
 
-      <div className="flex justify-center pb-3 px-10">
+      {/* Profile photo — centered, smaller on mobile */}
+      <div className="flex justify-center pb-3 px-4 sm:px-10">
         <div className="relative">
-          <div className="w-[250px] h-[250px] rounded-full
+          <div className="w-[160px] h-[160px] sm:w-[220px] sm:h-[220px] lg:w-[250px] lg:h-[250px] rounded-full
                           bg-gradient-to-br from-[#1f6feb] to-[#388bfd]
                           overflow-hidden shadow-xl">
             <img
@@ -30,9 +28,7 @@ export default function Sidebar({ setActiveSection }: Props) {
               alt="Profile"
             />
           </div>
-
-          {/* Badge */}
-          <div className="absolute bottom-8 right-0.5 w-8 h-8 rounded-full
+          <div className="absolute bottom-4 right-0.5 w-8 h-8 rounded-full
                           bg-[#21262d] border-[#161b22]
                           flex items-center justify-center shadow">
             👨‍💻
@@ -40,14 +36,14 @@ export default function Sidebar({ setActiveSection }: Props) {
         </div>
       </div>
 
-      {/* Name */}
-      <div className="px-5 pb-3">
-        <h1 className="text-[27px] font-bold text-white">
+      {/* Name + Bio — centered on mobile, left-aligned on desktop */}
+      <div className="px-5 pb-3 text-center lg:text-left">
+        <h1 className="text-[22px] sm:text-[27px] font-bold text-white">
           Mahesh Dasarwad
         </h1>
       </div>
 
-      {/* Resume Button - View in browser */}
+      {/* Resume button */}
       <div className="px-5 pb-4">
         <a
           href="/Resume_sem6.pdf"
@@ -63,19 +59,18 @@ export default function Sidebar({ setActiveSection }: Props) {
       </div>
 
       {/* Bio */}
-      <div className="px-5 py-4">
+      <div className="px-5 py-3 text-center lg:text-left">
         <p className="text-sm font-semibold text-white">
           Full Stack Developer | MERN | Python | AI/ML Enthusiast
         </p>
-          <p className="text-xs text-[#8b949e] mt-1">
-            Computer Engineering
-          </p>
+        <p className="text-xs text-[#8b949e] mt-1">
+          Computer Engineering
+        </p>
       </div>
 
-      {/* Info Section */}
-      <div className="px-5 py-4 space-y-3">
+      {/* Info section — inline on mobile (row), stacked on desktop (col) */}
+      <div className="px-5 py-4 flex flex-row flex-wrap gap-4 lg:flex-col lg:space-y-3 lg:gap-0 justify-center lg:justify-start">
 
-        {/* Time */}
         <div className="flex items-center gap-2 text-sm text-[#8b949e]">
           <Clock size={15} />
           <span>
@@ -83,10 +78,9 @@ export default function Sidebar({ setActiveSection }: Props) {
           </span>
         </div>
 
-        {/* LinkedIn Link */}
-        <a 
-          href={data.linkedIn} 
-          target="_blank" 
+        <a
+          href={data.linkedIn}
+          target="_blank"
           rel="noreferrer"
           className="flex items-center gap-2 text-sm text-[#8b949e] hover:text-white transition-colors"
         >
@@ -95,8 +89,8 @@ export default function Sidebar({ setActiveSection }: Props) {
         </a>
       </div>
 
-      {/* Contact */}
-      <div className="-mt-3 px-5 py-3">
+      {/* Contact link */}
+      <div className="-mt-2 px-5 py-3 text-center lg:text-left">
         <button
           onClick={() => {
             const el = document.getElementById('contact-section')
