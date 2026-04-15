@@ -23,8 +23,8 @@ export default function Sidebar({ setActiveSection }: Props) {
                           bg-gradient-to-br from-[#1f6feb] to-[#388bfd]
                           overflow-hidden shadow-xl">
             <img
-              src="IMG_4800.jpg"
-              className="object-cover w-full h-full"
+              src="profileimg2.jpeg"
+              className="object-cover w-full h-full scale-110"
               alt="Profile"
             />
           </div>
