@@ -24,8 +24,6 @@ A modern and responsive **portfolio website** built using **React (Vite) + Tailw
 │   │
 │   ├── components/         # Reusable UI components
 │   │   ├── ContactFooter.tsx
-│   │   ├── Header.tsx
-│   │   ├── Navbar.tsx
 │   │   └── Sidebar.tsx
 │   │
 │   ├── sections/           # Page sections
